@@ -2,8 +2,8 @@ import React from "react";
 import './App.css';
 import { useState,useEffect } from "react";
 import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField'
-
+import TextField from '@mui/material/TextField';
+import { API } from './global';
 
 
   function MovieList(){
@@ -75,7 +75,7 @@ import TextField from '@mui/material/TextField'
       }
     ];
       useEffect(()=>{
-      fetch("https://62f5ece6612c13062b42c3b4.mockapi.io/movies")
+      fetch(`${API}/movies`)
       .then((data)=>data.json())
       .then((mvs)=> setMovieList(mvs));
       },[]);
